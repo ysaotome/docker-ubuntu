@@ -13,6 +13,10 @@ RUN apt-get install -y build-essential
 RUN apt-get install -y curl wget git byobu zsh htop vim
 RUN rm -rf /var/lib/apt/lists/*
 
+# Set Time Zone
+RUN echo 'Asia/Tokyo' > /etc/timezone
+RUN dpkg-reconfigure -f noninteractive tzdata
+
 # Add file
 ##ADD dotfiles/.zshrc /root/.zshhrc
 
