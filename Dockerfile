@@ -2,15 +2,16 @@ FROM ubuntu:14.04
 
 MAINTAINER Yuichi Saotome <y@sotm.jp>
 
-# Install
+# Install 
 ENV DEBIAN_FRONTEND noninteractive
 RUN echo "deb-src http://jp.archive.ubuntu.com/ubuntu trusty main" >> /etc/apt/sources.list
 RUN sed "s/main$/main universe/" -i /etc/apt/sources.list
 RUN apt-get update && apt-get upgrade -y
-## make ,gcc 
-RUN apt-get install -y build-essential
-RUN apt-get install -y vim curl wget git byobu zsh htop iftop iotop 
+RUN apt-get install -y build-essential language-pack-ja vim curl wget git byobu zsh htop iftop iotop 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Set Locale
+RUN update-locale LANG=ja_JP.UTF-8
 
 # Set Time Zone JST
 RUN echo 'Asia/Tokyo' > /etc/timezone
