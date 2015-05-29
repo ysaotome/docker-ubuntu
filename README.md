@@ -7,5 +7,5 @@
 ## How to use
 
 ```bash
-docker run -it --rm ysaotome/ubuntu
+docker run -it --rm ysaotome/ubuntu bash
 ```
